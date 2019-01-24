@@ -39,7 +39,7 @@ def LR(X_train, X_test, y_train, y_test):
     print(classification_report(y_test, lr_y_predict, target_names=['11', '1']))
 
 
-# 随机梯度下降
+# 随机梯度下降 0.689787
 def SGD(X_train, X_test, y_train, y_test):
     sgdc = stochastic_gradient.SGDClassifier(max_iter=5) #初始化分类器
     sgdc.fit(X_train, y_train)
@@ -47,7 +47,7 @@ def SGD(X_train, X_test, y_train, y_test):
     print("Accuracy of SGD Classifier:%f" % sgdc.score(X_test, y_test))
     print(classification_report(y_test, sgdc_y_predict, target_names=['11', '1']))
 
-
+# 0.719517
 def svm(X_train, X_test, y_train, y_test, csv_file):
     lsvc = LinearSVC()
     lsvc.fit(X_train, y_train)
@@ -79,7 +79,7 @@ if __name__ == '__main__':
     X_train, X_test, y_train, y_test, csv_file = get_sample_from_csv()
     X_train, X_test, y_train, y_test = standard(X_train, X_test, y_train, y_test)
     #LR(X_train, X_test, y_train, y_test)
-    #SGD(X_train, X_test, y_train, y_test)
-    svm(X_train, X_test, y_train, y_test, csv_file)
+    SGD(X_train, X_test, y_train, y_test)
+    #svm(X_train, X_test, y_train, y_test, csv_file)
     #tree(X_train, X_test, y_train, y_test)
     # random_forest(X_train, X_test, y_train, y_test)
